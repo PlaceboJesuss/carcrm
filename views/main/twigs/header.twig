@@ -1,0 +1,71 @@
+<nav class="navbar has-background-white  is-fullwidth">
+	<div class="navbar-brand ">
+		<div class="is-flex p-1">
+			<img class="logo" src="/img/logo_256px.png" >
+		</div>
+		<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+	</div>
+
+	<div class="navbar-menu py-0">
+		<div class="navbar-start">
+			<div class="navbar-item has-dropdown is-hoverable is-size-6">
+				<a class="navbar-link">
+					Сделки
+				</a>
+
+				<div class="navbar-dropdown  pt-0 is-size-6">
+					<div class="has-background-grey-light m-0 p-2">
+						Воронки:
+					</div>
+					{% for pipeline in pipelines %}
+						<a href="/pipelines/{{pipeline.id}}" class="navbar-item">
+							{{ pipeline.name }}
+						</a>
+					{% endfor %}
+					<hr class="navbar-divider">
+					<a href="/leads" class="navbar-item">
+						Все сделки
+					</a>
+					<hr class="navbar-divider">
+					<a class="navbar-item button-add-pipeline">
+						Добавить воронку
+					</a>
+				</div>
+			</div>
+			<a href="/contacts" class="navbar-item is-size-6">
+				Контакты
+			</a>
+
+			<a href="/tasks" class="navbar-item is-size-6">
+				Задачи
+			</a>
+			<a href="/analytics" class="navbar-item is-size-6">
+				Аналитика
+			</a>
+			<a href="/cars" class="navbar-item is-size-6">
+				Автомобили
+			</a>
+			<a href="/settings" class="navbar-item is-size-6">
+				Настройки
+			</a>
+		</div>
+		<div class="navbar-end">
+			<div class="navbar-item">
+				<div class="subtitle">
+					{{ user.name }}
+				</div>
+			</div>
+			<div class="navbar-item">
+				<div class="buttons">
+					<a href="/login/logout" class="button  is-outlined">
+						Выход
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>

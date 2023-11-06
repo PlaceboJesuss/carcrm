@@ -1,0 +1,8 @@
+<div class="form">
+	<input class="send-field is-hidden" data-id="id" value="{{id}}">
+	Результат:
+	{% include("/inputs/textarea.twig") with {id:"text", class:"send-field"} %}
+	<div class="is-flex is-justify-content-flex-end">
+		{% include("/buttons/save.twig") with {class: "button-confirm-task-modal"}%}
+	</div>
+</div>

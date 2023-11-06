@@ -1,0 +1,47 @@
+<div>
+	<table class="table is-fullwidth has-text-centered">
+		<thead>
+			<tr>
+				<td>
+					От
+				</td>
+				<td>
+					До
+				</td>
+				<td>
+					Менеджер
+				</td>
+				<td>Передача сделок</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for vacation in vacations %}
+				<tr>
+					<td>
+						{{ vacation.date_from|date("d.m.Y") }}
+					</td>
+					<td>
+						{{vacation.date_to|date("d.m.Y") }}
+					</td>
+					<td>
+						{{ vacation.user.name }}
+					</td>
+					<td>
+						{{ vacation.transfer_lead ? "Да" : "Нет" }}
+					</td>
+					<td>
+						{% include("/buttons/edit.twig") with { class:"button-edit-vacation", id:vacation.id} %}
+					</td>
+					<td>
+						{% include("/buttons/delete.twig") with {class:"button-delete-vacation", id:vacation.id} %}
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<div class="is-flex is-justify-content-flex-end p-2">
+		{% include("/buttons/plus.twig") with {class:"button-plus-vacation"} %}
+	</div>
+</div>

@@ -1,0 +1,14 @@
+<a href="/leads/{{ lead.id }}" class="button is-vlarge has-text-black is-align-items-start is-justify-content-start p-1 m-1 is-fullwidth">
+	<div class="columns m-0 is-fullwidth is-multiline">
+		<div class="column is-size-6 truncate has-text-left is-12 p-1 pb-2">
+			{{ lead.name }}
+		</div>
+		<div class="column has-text-left is-7 is-size-7 p-1 py-2 truncate">
+			{{ lead.responsible.name }}
+		</div>
+		<div class="column has-text-right is-5 is-size-7 p-1 py-2">
+			{{ lead.discount }}
+			р.
+		</div>
+	</div>
+</a>

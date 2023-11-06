@@ -1,0 +1,74 @@
+<div class="columns">
+	<div class="column is-2">
+		{% include("/inputs/select.twig") with {
+			options:
+				[
+					{
+						id:"today",
+						name:"Сегодня"
+					},
+					{
+						id:"week",
+						name:"Текущая неделя"
+					},
+					{
+						id:"full-week",
+						name:"Полная неделя"
+					},
+					{
+						id:"month",
+						name:"Текущий месяц"
+					},
+					{
+						id:"full-month",
+						name:"Полный месяц"
+					},
+					{
+						id:"year",
+						name:"Текущий год"
+					},
+					{
+						id:"full-year",
+						name:"Полный год"
+					},
+					{
+						id:"all-time",
+						name:"Все время"
+					},
+					{
+						id:"set-time",
+						name:"По дате"
+					},
+
+				]
+			,
+			options_value:"id",
+			options_text:"name",
+			not_null:true,
+			select_id:"month",
+			class:"select-mode",
+		} %}
+	</div>
+	<div class="column is-2">
+		{% include("/inputs/date.twig") with {class:"input-date-from", disabled:true, value: date_from|date("Y-m-d") } %}
+	</div>
+	<div class="column is-2">
+		{% include("/inputs/date.twig") with {class:"input-date-to", disabled:true, value: date_to|date("Y-m-d") } %}
+	</div>
+	<div class="column is-2">
+
+
+		{% include("/inputs/select.twig") with {
+			options:users,
+			options_value:"id",
+			options_text:"name",
+			class:"select-user",
+		} %}
+	</div>
+	<div class="column is-offset-2 is-2">
+		{% include("/buttons/accept.twig") with {class:"button-search"}%}
+	</div>
+</div>
+<div id="analytics-inner">
+	{{inner|raw}}
+</div>

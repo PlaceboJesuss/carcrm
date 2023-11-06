@@ -1,0 +1,76 @@
+{% set fields = [
+		{
+			name:"Фирма",
+			value:"brand",
+			type:"text"
+		},
+		{
+			name:"Модель",
+			value:"model",
+			type:"text"
+		},
+		{
+			name:"Комплектация",
+			value:"name",
+			type:"text"
+		},
+		{
+			name:"Цена",
+			value:"price",
+			type:"money"
+		},
+		{
+			name:"Год",
+			value:"year",
+			type:"number"
+		},
+		{
+			name:"Цвет",
+			value:"color",
+			type:"text"
+		},
+		{
+			name:"Тип кузова",
+			value:"body",
+			type:"text"
+		},		{
+			name:"VIN",
+			value:"VIN",
+			type:"text"
+		},		{
+			name:"Объем двигателя",
+			value:"engine_size",
+			type:"number"
+		},
+		{
+			name:"Топливо",
+			value:"fuel",
+			type:"text"
+		},
+				{
+			name:"Описание",
+			value:"description",
+			type:"textarea"
+		},
+	
+	
+	
+	
+	]	
+%}
+<div class="is-flex is-justify-content-center">
+	<div class="form column {% if not is_add %}is-6{% endif %}">
+	<input class="send-field is-hidden" data-id="id" value="{{complectation.id}}">
+		{% for field in fields %}
+			<div class="field">
+				<label class="label">{{field.name}}</label>
+				<div class="control">
+					{% include("/inputs/#{field.type}.twig") with {class:"send-field", id:field.value, value:attribute(complectation,field.value)} %}
+				</div>
+			</div>
+		{% endfor %}
+		<div class="is-flex is-justify-content-flex-end">
+			{% include("/buttons/save.twig") with {class:"button-car-save"}%}
+		</div>
+	</div>
+</div>

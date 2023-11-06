@@ -1,0 +1,24 @@
+<div class="form">
+	{% for hidden_field in hidden  %}
+		<input id="{{ hidden_field.id }}" type="{{ hidden_field.type }}" class="input is-hidden send-field" value="{{hidden_field.value}}">
+	{% endfor %}
+	<table class="table is-fullwidth">
+		{% for show_field in show  %}
+		<tr>
+			<td class="is-vcentered">
+				<label class="label">{{show_field.text}}</label>
+			</td>
+			<td>
+				<div class="field">
+					<div class="control">
+						<input id="{{show_field.id}}" type="{{show_field.type}}" class="input send-field" value="{{show_field.value}}">
+					</div>
+				</div>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+	<div class="is-flex pb-2 pr-5 is-justify-content-end">
+		<button id="add-status-button" class="button is-dark is-outlined">Сохранить</button>
+	</div>
+</div>

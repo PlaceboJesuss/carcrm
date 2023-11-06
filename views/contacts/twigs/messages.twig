@@ -1,0 +1,14 @@
+<div class="columns is-mobile m-0">
+	<div class="column is-resizable {% if user.id == message.user.id %}is-offset-5{% endif %} is-7 px-0 py-1">
+		<article class="message is-info">
+			<div class="message-header p-2">
+				<p>{{ message.user.name }}</p>
+				<p>{{message.created_at|date("H:i d.m.Y")}}</p>
+			</div>
+			<div class="message-body p-3">
+				{{message.text}}
+			</div>
+			
+		</article>
+	</div>
+</div>

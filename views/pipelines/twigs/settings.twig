@@ -1,0 +1,28 @@
+<div class="form">
+	<div class="columns m-0">
+		<div class="column is-4 p-0 is-size-4">
+			<input type="text" data-id="pipeline_name" class="send-field input has-text-centered is-editable m-0 p-0" value="{{ pipeline.name }}">
+		</div>
+		<div class="column p-0 is-offset-7 is-1">
+			<div id="confirm" class="button mb-2 is-success ">
+				<span class="icon">
+					<i class="mdi mdi-check-bold"></i>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="columns is-mobile is-multiline is-flex is-justify-content-center scroll">
+		<div id="statuses-form" class="column is-9">
+			{% for status in pipeline.statuses %}
+				{% include('status_setting.twig') with {id:status.id, name:status.name }%}
+			{% endfor %}
+			{% include('add_status.twig') %}
+
+		</div>
+		<div class="column py-0 is-12">
+			<div class="m-0 is-flex is-justify-content-flex-end">
+				{% include("/buttons/delete.twig") with {id:pipeline.id,class:"button-delete-pipeline",text:"Удалить воронку"} %}
+			</div>
+		</div>
+	</div>
+</div>

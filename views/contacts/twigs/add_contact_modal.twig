@@ -1,0 +1,9 @@
+<div class="form">
+	<div>
+		Имя контакта:
+		{% include("/inputs/text.twig") with {class:"send-field", id:"contact_name"}%}
+	</div>
+	<div class="is-flex is-justify-content-flex-end">
+		{% include("/buttons/save.twig") with {class:"button-add-contact-save"} %}
+	</div>
+</div>

@@ -1,0 +1,9 @@
+<div class="form">
+	<div>
+		Название воронки:
+		{% include("/inputs/text.twig") with {class:"send-field", id:"pipeline_name"}%}
+	</div>
+	<div class="is-flex is-justify-content-flex-end">
+		{% include("/buttons/save.twig") with {class:"button-add-pipeline-save"} %}
+	</div>
+</div>

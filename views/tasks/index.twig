@@ -1,0 +1,26 @@
+<div class="is-fullwidth ">
+	<div class="columns m-0 is-mobile">
+		<div class="column m-0 is-6">
+			{% if users[self_user_id].is_admin %}
+				{% include("/inputs/select.twig") with {
+					options: users,
+					options_value:"id",
+					options_text:"name",
+					select_id:self_user_id,
+					not_null:true,
+					class:"select-user-tasks"
+				}	
+			%}
+
+			{% endif %}
+		</div>
+		<div class="column m-0 is-6">
+			<div class="is-flex is-justify-content-flex-end p-0">
+				{% include("/buttons/plus.twig") with {class:"button-task-create"} %}
+			</div>
+		</div>
+	</div>
+	<div id="inner-tasks">
+	{% include("inner.twig") with {user:users[self_user_id]}%}
+	</div>
+</div>

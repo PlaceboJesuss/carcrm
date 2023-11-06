@@ -1,0 +1,43 @@
+<div class="form columns is-multiline m-0">
+	{% if lead_id %}<input data-id="lead_id" class="send-field is-hidden" value="{{lead_id}}">{% endif %}
+	<div class="column is-12">
+		Текст задачи
+		{% include("/inputs/textarea.twig") with {class:"send-field", id:"text"} %}
+	</div>
+	{% if self.is_admin %}
+		<div class="column is-12 py-0">
+			Задача для:
+			{% include("inputs/select.twig") with {
+			options:users,
+			options_value:"id",
+			options_text:"name",
+			select_id:self.id,
+			not_null:true,
+			class:"send-field",
+			id:"user_id",
+		} %}
+		</div>
+	{% endif %}
+	<div class="column py-0">
+		<div class="columns m-0">
+		{% set date = date() %}
+			<div class="column pl-0">
+				Часы
+				{% include("/inputs/number.twig") with {class:"send-field", id:"hours", value: date|date("h")} %}
+			</div>
+			<div class="column">
+				Минуты
+				{% include("/inputs/number.twig") with {class:"send-field", id:"minutes", value: date|date("i")} %}
+			</div>
+			<div class="column pr-0">
+				Дата
+				{% include("/inputs/date.twig") with {class:"send-field", id:"date", value: date|date("Y-m-d")} %}
+			</div>
+		</div>
+	</div>
+	<div class="column py-0 is-12">
+		<div class="is-flex is-justify-content-flex-end">
+			{% include("/buttons/save.twig") with {class:"button-save-task"} %}
+		</div>
+	</div>
+</div>

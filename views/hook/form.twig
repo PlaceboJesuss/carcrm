@@ -1,0 +1,63 @@
+<div class="field">
+	<label class="label">Статус создаваемой сделки</label>
+	<div class="control">
+		{% include("/inputs/select.twig") with {
+			groups:pipelines,
+			options_name:"statuses",
+			options_value:"id",
+			options_text:"name",
+			not_null:true,
+			class:"select-status"
+			} %}
+	</div>
+</div>
+<textarea class="is-fullwidth" rows="20">
+	<div>
+		<iframe name="iframe-hook" style="display:none;"></iframe>
+		<form action="http://carcrm.com/hook" method="post" id="hook-in-crm" target="iframe-hook">
+			<input name="status_id" value="{{status_id}}" style="display:none;">
+			<table>
+				{% for field in fields %}
+					<tr>
+						<td>
+							<label>{{field.text}}</label>
+						</td>
+						<td><input type="{{field.customField.type.type}}" name="field-for-hook{{field.id}}"></td>
+					</tr>
+				{% endfor %}
+			</table>
+			<button type="submit">Оставить заявку</button>
+		</form>
+		<style>
+			#hook-in-crm {
+				border: 1px solid black;
+				border-radius: 5px;
+				width: fit-content;
+				padding: 1rem;
+				position: absolute;
+				font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+			}
+			#hook-in-crm input {
+				font-size: large;
+				margin: 0.25rem;
+				width: 100%;
+			}
+			#hook-in-crm label {
+				font-size: large;
+				margin: 0.25rem;
+			}
+			#hook-in-crm button {
+				padding: 0.5rem;
+				border-radius: 5px;
+				color: black;
+				border: 1px solid #00d1b2;
+				background-color: white;
+				font-size: initial;
+				float: right;
+			}
+			#hook-in-crm button:hover {
+				background-color: #00d1b2;
+			}
+		</style>
+	</div>
+</textarea>

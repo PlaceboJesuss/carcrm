@@ -1,0 +1,41 @@
+<table class="has-text-centered is-fullwidth table m-0">
+	<thead>
+		<tr>
+			<td class="p-1">
+				Название
+			</td>
+			<td class="p-1">
+				Соответствие
+			</td>
+			<td></td>
+		</tr>
+	</thead>
+	<tbody>
+		{% for field in hook_fields %}
+			<tr>
+				<td>
+					{{field.text}}
+				</td>
+				<td>
+					{% include("/inputs/select.twig") with {
+										class:"send-field-list",
+										is_disabled:true,
+											groups:hook_options,
+											options_name:"options",
+											options_value:"id",
+											options_text:"name",
+											select_id:field.field_id,
+										}
+							 		%}
+				</td>
+				<td>
+					{% include("/buttons/delete.twig") with {class:"button-delete-hook-field", id:field.id} %}
+				</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+<div class="is-flex is-justify-content-space-around py-2">
+	<button class="button button-generate-form">Сгенерировать форму</button>
+	{% include("/buttons/plus.twig") with {class:"button-plus-hook-field"} %}
+</div>

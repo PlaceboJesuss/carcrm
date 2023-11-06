@@ -1,0 +1,45 @@
+<div>
+	{% if groups|length > 0 %}
+		{% for group in groups %}
+			<div class="scroll-x form ">
+				Группа
+				{% set group_id = loop.index %}
+				{{ group_id }}
+				{% for index in group %}
+					<div class="p-1 is-inline-flex card-doubles">
+						<div class="card is-inline-flex is-fullwidth">
+							<div class="card-content is-fullwidth">
+								<div class="content m-0 has-text-centered">
+									{{ contacts[index].name }}
+								</div>
+
+								<div>
+
+									<input type="radio" data-id="email-{{ contacts[index].id }}" class="send-field-list" name="email-{{ group_id }}" {% if not contacts[index].email %} disabled {% else %} checked {% endif %}>
+									Email:
+									{{ contacts[index].email }}
+
+
+								</div>
+								<div>
+									<input type="radio" data-id="phone-{{ contacts[index].id }}" class="send-field-list" name="phone-{{ group_id }}" {% if not contacts[index].phone %} disabled {% else %} checked {% endif %}>
+									Phone:
+									{{ contacts[index].phone }}
+								</div>
+
+								<div class="content p-4 has-text-centered">
+									<input type="checkbox" class="send-field-list checkbox is-large" data-id="select-{{ contacts[index].id }}">
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+				<button class="button button-merge-contacts is-outlined is-success">Объединить</button>
+			</div>
+		{% endfor %}
+	{% else %}
+		<div class="is-size-1 has-text-centered">
+			Дублей не найдено
+		</div>
+	{% endif %}
+</div>

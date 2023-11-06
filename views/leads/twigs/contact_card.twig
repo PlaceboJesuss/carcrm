@@ -1,0 +1,45 @@
+<div class="box p-1 mb-1">
+	<div class="columns is-mobile is-fullwidth">
+		<div class="column is-fullwidth">
+			<table class="table is-fullwidth">
+				<tr>
+					<td>
+						<label class="label">Имя:</label>
+					</td>
+					<td>
+						{{contact.name}}</td>
+				</tr>
+				{% if contact.phone %}
+					<tr>
+						<td>
+							<label class="label">Телефон:</label>
+						</td>
+						<td>
+							{{contact.phone}}
+						</td>
+					</tr>
+				{% endif %}
+				{% if contact.email %}
+					<tr>
+						<td>
+							<label class="label">Email:</label>
+						</td>
+						<td>
+							{{contact.email}}
+						</td>
+					</tr>
+				{% endif %}
+			</table>
+		</div>
+		<div class="column is-narrow p-1">
+			<div class=" is-flex is-flex-direction-column is-justify-content-space-evenly is-fullheight">
+
+				{% include("/buttons/detach.twig") with {class:"button-detach-contact", id:contact.id} %}
+				<a href="/contacts/{{contact.id}}">
+					{% include("/buttons/card.twig") %}
+				</a>
+
+			</div>
+		</div>
+	</div>
+</div>

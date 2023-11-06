@@ -1,0 +1,32 @@
+<div class="form">
+	<div class=" columns m-0">
+		<div class="column is-1">
+			{% include("/buttons/delete.twig") with {class:"is-hidden remove-list-button"} %}
+		</div>
+		<div class="column is-offset-2 is-6">
+			{% include("/inputs/search.twig") with {class:"is-narrow"} %}
+		</div>
+
+		<div class="column is-2">
+			{% if is_contact %}
+				<div class="is-flex is-justify-content-center">
+					<a href="/contacts/find-doubles" class="button">Поиск дублей</a>
+				</div>
+			{% endif %}
+			{% if is_cars %}
+				<div class="is-flex is-justify-content-center">
+					<a href="/cars/sync" class="button">Синхронизация</a>
+				</div>
+			{% endif %}
+		</div>
+
+		{% if not is_select %}
+			<div class="column is-1">
+				{% include("/buttons/plus.twig") with {class:"add-list-button"} %}
+			</div>
+		{% endif %}
+	</div>
+	<div id="list">
+		{% include("list-inner.twig") %}
+	</div>
+</div>

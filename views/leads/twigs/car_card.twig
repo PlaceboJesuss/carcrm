@@ -1,0 +1,45 @@
+{% set fields = [
+		{
+			name:"Фирма",
+			value:"brand"
+		},
+		{
+			name:"Модель",
+			value:"model"
+		},
+		{
+			name:"Комплектация",
+			value:"name"
+		},
+		{
+			name:"Цена",
+			value:"price"
+		}
+	]	
+%}
+
+<div class="box p-1 mb-1">
+	<table class="table is-fullwidth">
+		{% for field in fields %}
+			{% if attribute(car, field.value) %}
+				<tr>
+					<td>
+						<label class="label">{{field.name}}:</label>
+					</td>
+					<td>
+						{{attribute(car, field.value)}}
+					</td>
+				</tr>
+			{% endif %}
+		{% endfor %}
+	</table>
+
+	<div class=" is-flex p-1 is-justify-content-space-evenly is-fullwidth">
+
+		{% include("/buttons/detach.twig") with {class:"button-detach-car", id:car.id} %}
+		<a href="/cars/{{car.id}}">
+			{% include("/buttons/card.twig") %}
+		</a>
+
+	</div>
+</div>

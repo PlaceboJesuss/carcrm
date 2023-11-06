@@ -1,0 +1,8 @@
+<div class="is-flex is-flex-wrap-wrap is-justify-content-center">
+	{% for number in simple_numbers %}
+		{% include("simple_number.twig") %}
+	{% endfor %}
+	{% for chart in columns_charts %}
+		{% include("columns_chart.twig") with {chart:chart} %}
+	{% endfor %}
+</div>

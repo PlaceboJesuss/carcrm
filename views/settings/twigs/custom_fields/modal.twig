@@ -1,0 +1,44 @@
+<div class="form">
+	<input data-id="id" class="send-field is-hidden" value="{{cf.id}}">
+	{% if entity_id %}<input data-id="entity_id" class="send-field is-hidden" value="{{entity_id}}">
+	{% endif %}
+	<table class="table border-out is-fullwidth">
+		<tbody>
+			<tr>
+				<td>Название поля</td>
+				<td>{% include("/inputs/text.twig") with {value:cf.name, class:"send-field", id:"name"} %}</td>
+			</tr>
+			<tr>
+				<td>Тип поля</td>
+				<td>
+					{% if is_add %}
+						{% include("/inputs/select.twig") with {
+							options: types,
+							options_text:"name",
+							options_value:"type",
+							class:"send-field select-type",
+							id:"type",
+							not_null:true
+						} %}
+					{% else %}
+						{{cf.type.name}}
+					{% endif %}
+				</td>
+			</tr>
+			<tr class="options {% if cf.type.type != "select" %}is-hidden{% endif %}">
+				<td>Значения поля</td>
+				<td>
+					<div class="p-1">
+						{% for option in cf.options %}
+							{% include("option.twig") %}
+						{% endfor %}
+						{% include("/buttons/plus.twig") with {class:"is-fullwidth add-option"} %}
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="is-flex is-justify-content-flex-end">
+		{% include("/buttons/save.twig") with {id:"save-custom-field"} %}
+	</div>
+</div>

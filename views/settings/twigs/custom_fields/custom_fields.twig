@@ -1,0 +1,38 @@
+<table class="table is-narrow m-0 is-fullwidth has-text-centered">
+	<thead>
+		<tr class="has-text-weight-bold">
+			<td class="py-3">Название поля</td>
+			<td class="py-3">Тип поля</td>
+			<td class="py-3">Значения поля</td>
+			<td class="py-3"></td>
+			<td class="py-3"></td>
+		</tr>
+	</thead>
+	<tbody>
+		{% for cf in custom_fields %}
+			<tr id="cf{{cf.id}}">
+				<td>
+					{{cf.name}}
+				</td>
+				<td>
+					{{cf.type.name}}
+				</td>
+				<td>
+					<div class="p-1 truncate">
+						{% for option in cf.options %}
+							{{ option.text}};
+						{% endfor %}
+					</div>
+				</td>
+				<td>
+					{% include("/buttons/edit.twig") with {class:"edit-custom-field"} %}
+				</td>
+				<td>
+					{% include("/buttons/delete.twig") with {class: "button-delete-custom-field", id: cf.id} %}
+				</td>
+			</tr>
+
+		{% endfor %}
+	</tbody>
+</table>
+{% include("/buttons/plus.twig") with {class:"add-custom-field is-fullwidth"} %}

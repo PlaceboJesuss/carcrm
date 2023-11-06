@@ -1,0 +1,43 @@
+{% set max = 0 %}
+{% for column in chart.columns %}
+	{% if column.value > max %}
+		{% set max = column.value %}
+	{% endif %}
+{% endfor %}
+{% if max != 0 %}
+	<div class="p-1 is-inline-flex card-4-2">
+		<div class="card is-inline-flex is-fullwidth">
+			<div class="card-content is-fullwidth">
+				<table id="anatomy-simple-chart" class="charts-css column show-heading show-labels show-primary-axis show-4-secondary-axes show-data-axes data-spacing-15 hide-data">
+					<caption>
+						{{chart.text}}
+					</caption>
+					<thead>
+						<tr>
+							<th scope="col">
+								Year
+							</th>
+							<th scope="col">
+								Value
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for column in chart.columns %}
+							<tr>
+								<th>
+									{{column.name}}
+								</th>
+								<td style="--size: {{column.value / max}};">
+									<span class="{% if (column.value / max) < 0.05 %}data{% endif %}">
+										{{column.value}}
+									</span>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endif %}

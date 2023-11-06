@@ -1,0 +1,15 @@
+<div>
+	<div class="columns m-0 is-mobile is-multiline is-centered">
+		{% for task in user.activeTasks %}
+			{% include("task.twig") %}
+		{% endfor %}
+	</div>
+
+	<hr>
+	<p class="title has-text-centered">Завершенные</p>
+	<div class="columns m-0 is-mobile is-multiline is-centered">
+		{% for task in user.endTasks %}
+			{% include("task.twig")  %}
+		{% endfor %}
+	</div>
+</div>

@@ -1,0 +1,46 @@
+<div class="columns is-mobile m-0">
+	<div class="column is-resizable {% if user.id == task.director_id %}is-offset-5{% endif %} is-7 px-0 py-1">
+		<article class="message {% if task.closed_at %}{% if task.success %}is-success{% else %}is-danger{% endif %}{% endif %}">
+			<div class="message-header p-2">
+				<p>{{ task.director.name }}</p>
+				<p>{{task.created_at|date("H:i d.m.Y")}}</p>
+			</div>
+			<div class="message-body p-3">
+				<div class="columns is-mobile m-0">
+					<div class="column py-1">
+						<div class="is-flex is-fullheight is-flex-direction-column is-justify-content-flex-end">
+							<p>{{task.action}}</p>
+							{% if task.closed_at  %}
+								{% if task.success == 1%}
+									<p>
+										<strong>Результат:</strong>
+										{{task.result}}</p>
+								{% endif %}
+							{% else %}
+								<p>Выполнить:
+									{{task.date|date("H:i d.m.Y")}}</p>
+							{% endif %}
+							<p class="is-size-7 has-text-grey-light my-1 ">Для:
+								{{task.user.name}}</p>
+							{% if task.closed_at %}
+								<p class="is-size-7 has-text-grey-light my-1 has-text-right">Выполнить:
+									{{task.date|date("H:i d.m.Y")}}</p>
+								<p class="is-size-7 has-text-grey-light my-1 has-text-right">Завершено:
+									{{task.closed_at|date("H:i d.m.Y")}}</p>
+							{% endif %}
+						</div>
+					</div>
+					<div class="column p-0 is-narrow">
+						<div class="is-flex is-flex-direction-column">
+							{% if not task.closed_at and task.user_id == user.id %}
+								{% include("/buttons/confirm.twig") with {id:task.id, class:"button-confirm-task my-1"} %}
+								{% include("/buttons/cancel.twig") with {id:task.id, class:"button-cancel-task my-1"} %}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</article>
+	</div>
+</div>

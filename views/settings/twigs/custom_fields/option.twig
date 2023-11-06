@@ -1,0 +1,8 @@
+<div class="level m-0 option">
+	<div class="level-item">
+		{% include("/inputs/text.twig") with {data_id:option.id ,value:option.text, class:"send-field-list"} %}
+	</div>
+	<div class="level-item is-narrow p-1">
+		{% include("/buttons/delete.twig") with {class:"button-delete-option", id:option.id} %}
+	</div>
+</div>

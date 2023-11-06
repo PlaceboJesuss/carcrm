@@ -1,0 +1,15 @@
+<div class="columns is-mobile m-0 is-align-items-baseline">
+	<div class="column is-11 is-size-4">{{ pipeline.name }}</div>
+	<a href="/pipelines/{{ pipeline.id }}/settings" class="button mb-2 is-success is-1">
+		<span class="icon">
+			<i class="mdi mdi-pencil"></i>
+		</span>
+	</a>
+</div>
+<div>
+<div class="columns m-0 scroll-x mh-55">
+	{% for status in pipeline.statuses %}
+		{% include('status.twig') with {id:status.id, name: status.name, leads:status.leads, is_first:(loop.index0 == 0)}%}
+	{% endfor %}
+</div>
+</div>

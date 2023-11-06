@@ -1,0 +1,15 @@
+<article id="users_panel" class="panel is-dark">
+	<p class="is-flex is-flex-direction-row is-align-items-center is-justify-content-space-between panel-heading">
+		<label>Управление менеджерами</label>
+	</p>
+	<div id="settings-users-items">
+		{% for user in users %}
+			{% if user.id != current_user.id %}
+				{% include("user-item.twig") %}
+			{% endif %}
+		{% endfor %}
+	</div>
+	<div class="is-flex pt-2 pb-2 pr-5 is-justify-content-end">
+		<button id="settings-user-add-button" class="button is-black is-outlined">Добавить</button>
+	</div>
+</article>

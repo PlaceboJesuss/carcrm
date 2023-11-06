@@ -1,0 +1,59 @@
+<div class="form">
+	<input data-id="id" class="input is-hidden send-field" value="{{item.id}}">
+	<table class="table is-fullwidth" data-id="{{item.id}}">
+		<tr>
+			<td class="is-vcentered">
+				<label class="label">Имя</label>
+			</td>
+			<td>
+				<div class="field">
+					<div class="control">
+						<input data-id="name" class="input send-field" value="{{item.name}}">
+					</div>
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="is-vcentered">
+				<label class="label">Админ</label>
+			</td>
+			<td class="is-vcentered">
+				<div class="field">
+					<div class="checkbox">
+						<input data-id="is_admin" class="send-field" type="checkbox" {% if item.is_admin %} checked {% endif %}>
+					</div>
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="is-vcentered">
+				<label class="label">Логин</label>
+			</td>
+			<td>
+				<div class="field">
+					<div class="control">
+						<input data-id="login" class="input send-field" value="{{item.login}}">
+					</div>
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="is-vcentered">
+				<label class="label">Пароль</label>
+			</td>
+			<td>
+				<div class="field">
+					<div class="control">
+						<input data-id="password" class="input send-field" placeholder="********">
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="is-flex pb-2 pr-5 is-justify-content-end">
+		<button id="settings-users-save-button" class="button is-dark is-outlined">Сохранить</button>
+	</div>
+</div>

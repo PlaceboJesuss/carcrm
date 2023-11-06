@@ -1,0 +1,68 @@
+<div class="columns is-multiline  m-0 p-1">
+	<div class="column is-4 is-12-mobile  p-1 form">
+		<input data-id="contact_id" class="send-field is-hidden" value={{contact.id}}>
+		<div class="box m-0 p-2 ">
+			{% include("/inputs/text.twig") with {value:contact.name, id:"name", class:"send-field title is-large no-border"} %}
+			<div class="is-size-7 is-fullwidth">Контакт #{{contact.id}}</div>
+		</div>
+		<div class="scroll-y is-mh-55">
+			{% include("custom_fields.twig") with {
+					name:"Email",
+					id:"email",
+					value:contact.email,
+					type:"email",
+					class:"send-field is-small bb-1 is-shadowless has-background-transparent is-radiusless"
+					} 
+				%}
+			{% include("custom_fields.twig") with {
+					name:"Телефон",
+					id:"phone",
+					value:contact.phone,
+					type:"phone",
+					class:"send-field is-small bb-1 is-shadowless has-background-transparent is-radiusless"
+					} 
+				%}
+			{% for cf in cfs %}
+				{% include("custom_fields.twig") with
+					{
+						name:cf.name,
+						id:cf.id,
+						type:cf.type.type,
+						value:cfs_values[cf.id],
+						select_id:cfs_values[cf.id],
+						options:cf.options,
+						options_text:"text",
+						options_value:"id",
+						class:"send-field-list is-small bb-1 is-shadowless has-background-transparent is-radiusless"
+					} 
+					%}
+			{% endfor %}
+		</div>
+		<div class="is-flex is-justify-content-flex-end py-1 px-3">
+			{% include("buttons/save.twig") with {class:"is-small save-contact"}%}
+		</div>
+	</div>
+
+	<div class="column is-8 is-12-mobile p-1">
+		<div class="box message-field  mb-1">
+			<div class="is-flex is-flex-direction-column-reverse is-fullheight scroll-y">
+				{% for note in contact.notes | reverse %}
+					{% include("messages.twig")  with {message:note}%}
+				{% endfor %}
+			</div>
+		</div>
+		<div id="send-note-container" class="is-fullwidth  columns p-0 m-0">
+			<div class="column py-1 pl-0 pr-1">
+				{% include("/inputs/textarea.twig") %}
+			</div>
+			<div class="column is-narrow py-1 pl-1 pr-0">
+				<div class="is-flex is-fullheight is-flex-direction-column is-justify-content-space-between">
+					{% include("/buttons/cancel.twig") with {class:"button-clear-textarea my-1"} %}
+
+					{% include("/buttons/send.twig") with {class:"send-note my-1"} %}
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

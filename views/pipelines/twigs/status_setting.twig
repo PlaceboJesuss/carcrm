@@ -1,0 +1,14 @@
+<div class="status columns has-text-black p-2 m-2 is-one-fifth">
+	<div class="column is-1 p-1">
+		<span class="to-up button is-fullwidth mdi mdi-chevron-up mdi-24px m-0 p-0"></span>
+	</div>
+	<div class="column is-9 p-1">
+		<input type="text" data-id="{{ id }}" class="edit-name send-field-list input has-text-centered is-editable is-fullwidth m-0 p-0" value="{{ name }}">
+	</div>
+	<div class="column is-1 p-1">
+		{% include("/buttons/delete.twig") with {class:"to-delete is-fullwidth"}%}
+	</div>
+	<div class="column is-1 p-1">
+		<span class="to-down  button is-fullwidth mdi mdi-chevron-down mdi-24px m-0 p-0"></span>
+	</div>
+</div>

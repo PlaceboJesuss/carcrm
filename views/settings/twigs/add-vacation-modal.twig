@@ -1,0 +1,38 @@
+<div class="form">
+<input data-id="id" class="send-field is-hidden" value="{{vacation.id}}">
+	<div class="field">
+		<label class="label">Начало отпуска:</label>
+		<div class="control">
+			{% include("/inputs/date.twig") with { value:(vacation.date_from|date("Y-m-d")), class:"send-field", id:"date_from" } %}
+		</div>
+	</div>
+	<div class="field">
+		<label class="label">Конец отпуска:</label>
+		<div class="control">
+			{% include("/inputs/date.twig") with { value:vacation.date_to|date("Y-m-d"), class:"send-field", id:"date_to" } %}
+		</div>
+	</div>
+	<div class="field">
+		<label class="label">Менеджер</label>
+		<div class="control">
+			{% include("/inputs/select.twig") with {
+			options:users,
+			options_value:"id",
+			options_text:"name",
+			not_null:true,
+			class:"select-user-vacation send-field",
+			select_id:vacation.user_id,
+			id:"user_id",
+			} %}
+		</div>
+	</div>
+	<div class="field">
+		<label class="label">Передача сделок</label>
+		<div class="control">
+			{% include("/inputs/switch.twig") with { value:vacation.transfer_lead, class:"send-field", id:"transfer_lead" } %}
+		</div>
+	</div>
+	<div class="is-flex is-justify-content-flex-end p-2">
+		{% include("/buttons/save.twig") with {class:"button-save-vacation"} %}
+	</div>
+</div>

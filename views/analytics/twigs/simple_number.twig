@@ -1,0 +1,12 @@
+<div class="p-1 is-inline-flex card-{{number.size}}">
+	<div class="card is-inline-flex is-fullwidth">
+		<div class="card-content is-fullwidth">
+			<div class="content m-0 is-size-5 has-text-centered">
+				{{number.text}}
+			</div>
+			<div class="number-analytic has-text-centered">
+				{{number.value| round(2, 'floor') }}
+			</div>
+		</div>
+	</div>
+</div>

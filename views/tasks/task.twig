@@ -1,0 +1,49 @@
+<div class="column is-6-tablet is-6-desktop is-6-widescreen">
+	<div class="is-black">
+		<div class="card {% if task.closed_at %}{% if task.success %}has-background-success-light{% else %} has-background-danger-light{% endif %}{% endif %}">
+			<div class="card-content p-2">
+				<div class="content">
+					<div class="columns m-0">
+						<div class="column py-1">
+							<div class="is-flex is-fullheight is-flex-direction-column is-justify-content-flex-end">
+								<p>{{task.action}}</p>
+								{% if task.closed_at %}
+									{% if task.success == 1 %}
+										<p>
+											<strong>Результат:</strong>
+											{{task.result}}</p>
+									{% endif %}
+								{% else %}
+									<p>Выполнить:
+										{{task.date|date("H:i d.m.Y")}}</p>
+								{% endif %}
+								<p class="is-size-6 has-text-grey-light my-0 has-text-right">Создано:
+									{{task.created_at|date("H:i d.m.Y")}}</p>
+								{% if task.closed_at %}
+									<p class="is-size-6 has-text-grey-light my-0 has-text-right">Выполнить:
+										{{task.date|date("H:i d.m.Y")}}</p>
+									<p class="is-size-6 has-text-grey-light my-0 has-text-right">Завершено:
+										{{task.closed_at|date("H:i d.m.Y")}}</p>
+								{% endif %}
+							</div>
+						</div>
+
+						<div class="column p-0 is-narrow">
+							<div class="is-flex is-flex-direction-column">
+								{% if task.lead_id %}
+									<a href="/leads/{{task.lead_id}}">
+										{% include("/buttons/card.twig") with {class:"my-1"} %}
+									</a>
+								{% endif %}
+								{% if not task.closed_at and self_user_id == user.id %}
+									{% include("/buttons/confirm.twig") with {id:task.id, class:"button-confirm-task my-1"} %}
+									{% include("/buttons/cancel.twig") with {id:task.id, class:"button-cancel-task my-1"} %}
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

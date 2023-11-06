@@ -1,0 +1,26 @@
+<div class="form">
+	<div class="field">
+		<label class="label">Название поля</label>
+		<div class="control">
+			{% include("/inputs/text.twig") with {value:field.text, class:"send-field-list", id: "text" } %}
+		</div>
+	</div>
+	<div class="field">
+		<label class="label">Соответствие</label>
+		<div class="control">
+			{% include("/inputs/select.twig") with {
+			class:"send-field-list",
+			id:"option",
+			groups:hook_options,
+			options_name:"options",
+			options_value:"id",
+			options_text:"name",
+			select_id:field.field_id,
+		}
+		%}
+		</div>
+	</div>
+	<div class="is-flex is-justify-content-flex-end">
+		{% include("/buttons/save.twig") with {class:"button-save-hook-field"} %}
+	</div>
+</div>

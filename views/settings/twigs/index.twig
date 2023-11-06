@@ -1,0 +1,101 @@
+<div class="columns is-multiline">
+	<div class="column is-variable is-6-widescreen is-12-mobile is-12-tablet is-6-desktop is-6-fullhd">
+		{% include("manage_self.twig") %}
+	</div>
+	{% if current_user.is_admin %}
+		<div class="column is-variable is-6-widescreen is-12-mobile is-12-tablet is-6-desktop is-6-fullhd">
+			{% include("manage_managers.twig") %}
+		</div>
+	{% endif %}
+	{% if current_user.is_admin %}
+		<div class="column is-6-widescreen is-12-mobile is-12-tablet is-6-desktop is-6-fullhd">
+			<article data_id="1" class="manage-custom-fields panel is-dark">
+				<p class="is-flex is-flex-direction-row is-align-items-center is-justify-content-space-between panel-heading">
+					<label>Управление дополнительными полями сделки
+					</label>
+				</p>
+				{% include("custom_fields/custom_fields.twig") with {custom_fields:lead_custom_fields} %}
+			</article>
+		</div>
+		<div class="column is-6-widescreen is-12-mobile is-12-tablet is-6-desktop is-6-fullhd">
+			<article data_id="2" class="manage-custom-fields panel is-dark">
+				<p class="is-flex is-flex-direction-row is-align-items-center is-justify-content-space-between panel-heading">
+					<label>Управление дополнительными полями контактов
+					</label>
+				</p>
+				{% include("custom_fields/custom_fields.twig") with {custom_fields:contact_custom_fields} %}
+
+			</article>
+		</div>
+		<div class="column is-6-widescreen is-12-mobile is-12-tablet is-6-desktop is-6-fullhd">
+			<article data_id="2" class="manage-custom-fields panel is-dark form">
+				<p class="is-flex is-flex-direction-row is-align-items-center is-justify-content-space-between panel-heading">
+					<label>Управление приемом заявок с сайта</label>
+				</p>
+				{% include("hook-settings.twig") %}
+			</article>
+		</div>
+		<div class="column is-6-widescreen is-12-mobile is-12-tablet is-6-desktop is-6-fullhd">
+			<article data_id="2" class="manage-custom-fields panel is-dark form">
+				<p class="is-flex is-flex-direction-row is-align-items-center is-justify-content-space-between panel-heading">
+					<label>Отпуска</label>
+				</p>
+				{% include("vacations-settings.twig") %}
+			</article>
+		</div>
+		<div class="column is-6-widescreen is-12-mobile is-12-tablet is-6-desktop is-6-fullhd">
+			<article data_id="2" class="manage-custom-fields panel is-dark form">
+				<p class="is-flex is-flex-direction-row is-align-items-center is-justify-content-space-between panel-heading">
+					<label>Синхронизация данных об автомобилях</label>
+				</p>
+				<div class="form">
+					<div class="field p-2">
+						<label class="label">URL API:</label>
+						<div class="control">
+							{% include("/inputs/text.twig") with {value:url.value, class:"send-field", id: "URL" } %}
+						</div>
+					</div>
+					<table class="table has-text-centered is-fullwidth">
+						<thead>
+							<tr>
+								<td>Название в системе</td>
+								<td>Параметр</td>
+							</tr>
+						</thead>
+						<tbody>
+							{% set 	options = 
+											{ brand:"Бренд" ,
+											 model:"Модель" ,
+											 price:"Цена" ,
+											 year:"Год выпуска" ,
+											 color:"Цвет" ,
+											 engine_size:"Объём двигателя",
+											 fuel:"Тип топлива" ,
+											 name:"Комплектация" ,
+											 body:"Тип кузова" ,
+											VIN:"VIN" ,
+											description:"Описание",
+											car_id:"Идентификатор"
+											 }
+										
+							%}
+							{% for field in auto_fields %}
+								<tr>
+									<td>
+										{{ attribute(options, field.field ) }}
+									</td>
+									<td>
+										{% include("/inputs/text.twig") with {value:field.value, class:"send-field is-small", id:field.field } %}
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+				<div class="is-flex is-justify-content-flex-end p-2">
+					{% include("/buttons/save.twig") with {class:"button-save-auto-field"} %}
+				</div>
+			</div>
+		</article>
+	</div>
+{% endif %}</div>

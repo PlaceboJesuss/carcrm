@@ -1,0 +1,24 @@
+<select data-id="{{id}}" class="select is-fullwidth my-1 {{class}}" {% if is_disabled %} disabled {% endif %}>
+	{% if not not_null %}
+		<option value="">Выбрать</option>
+	{% endif %}
+	{% if options %}
+		{% for option in options %}
+			<option value="{{ attribute(option, options_value) }}" {% if option.id == select_id %} selected {% endif %}>
+				{{ attribute(option, options_text) }}
+			</option>
+		{% endfor %}
+	{% endif %}
+	{% if groups %}
+		{% for group in groups %}
+			<option disabled>
+				{{ group.name }}
+			</option>
+			{% for option in attribute(group,options_name) %}
+				<option value="{{ attribute(option, options_value) }}" {% if option.id == select_id %} selected {% endif %}>
+					{{ attribute(option, options_text) }}
+				</option>
+			{% endfor %}
+		{% endfor %}
+	{% endif %}
+</select>

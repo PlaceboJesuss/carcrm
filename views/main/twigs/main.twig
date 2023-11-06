@@ -1,0 +1,30 @@
+<html lang="ru">
+	<head>
+		<link rel="stylesheet" href="/css/bulma.css">
+		<link rel="stylesheet" href="/css/site.css">
+		<link rel="stylesheet" href="/css/switch.css">
+		<link rel="stylesheet" href="/css/charts.min.css">
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css">
+		<link rel="stylesheet" href="/css/jquery-ui.css">
+		<script src="/js/jquery.js"></script>
+		<script src="/js/jquery-ui.js"></script>
+		<script src="/js/main.js"></script>
+		<script src="/js/inputs.js"></script>
+		<link type="image/x-icon" href="/img/logo_small.png" rel="shortcut icon">
+		{% for script in scripts %}
+			<script src="{{script}}"></script>
+		{% endfor %}
+	</head>
+	<body {% if type %}data-type="{{type}}"{% endif %} {% if id %}data-id="{{id}}{% endif %}">
+		<section class="section hero is-align-items-center is-justify-content-flex-start has-background-dark is-100height px-3 pb-3 pt-0">
+			{% if need_header == true %}
+				{% include '/main/twigs/header.twig' %}
+			{% endif %}
+			<div class="box content-box columns is-centered  p-1">
+				<div class="column is-12 m-0 scroll-y">
+					{{ body|raw }}
+				</div>
+			</div>
+		</section>
+	</body>
+</html>

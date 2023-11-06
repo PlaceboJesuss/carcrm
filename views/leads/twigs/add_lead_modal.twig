@@ -1,0 +1,23 @@
+<div class="form">
+	{% if pipeline_id %}<input data-id="pipeline_id" class="send-field is-hidden" value="{{ pipeline_id }}">{% endif %}
+	<div>
+		Название сделки:
+		{% include("/inputs/text.twig") with {class:"send-field", id:"lead_name"}%}
+	</div>
+	{% if pipelines %}
+		<div class="is-fullwidth">
+			{% include("/inputs/select.twig") with {
+						class:"send-field",
+						id:"status_id",
+						groups: pipelines,
+						options_name:"statuses",
+						not_null: true,	
+						options_value: "id",
+						options_text: "name"
+					}  %}
+		</div>
+	{% endif %}
+	<div class="is-flex is-justify-content-flex-end">
+		{% include("/buttons/save.twig") with {class:"button-add-lead-save"} %}
+	</div>
+</div>

@@ -1,0 +1,12 @@
+<div class="column is-3 p-1">
+	<div id="id{{ id }}" class="button is-static  has-background-primary has-text-black  p-2 m-1 is-fullwidth">
+		{{ name }}
+	</div>
+	{% if is_first %}
+		{% include('add_lead.twig') %}
+	{% endif %}
+	{% for lead in leads %}
+		{% include('lead.twig') %}
+	{% endfor %}
+
+</div>

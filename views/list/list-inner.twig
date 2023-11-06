@@ -1,0 +1,45 @@
+{% if items|length == 0 %}
+	<div class="is-flex is-fullwidth is-justify-content-center is-size-3">
+		Ничего не найдено
+	</div>
+{% else %}
+	<table class="table is-hoverable is-fullwidth is-striped is-bordered">
+		<thead class="has-background-dark">
+			<tr>
+				{% if not is_select %}
+					<td class="is-narrow">
+						<input id="header-checkbox" type="checkbox">
+					</td>
+				{% endif %}
+				{% for column in columns %}
+					<td class="has-text-white">
+						{{column.name}}
+					</td>
+				{% endfor %}
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in items %}
+				<tr data-id="{{item.id}}" class="{% if is_select %} is-clickable is-select-{{select_type}} {% else %} open-item {% endif %}">
+					{% if not is_select %}
+						<td class="is-narrow">
+							<input data-id="{{item.id}}" type="checkbox" class="send-field-list checkbox-list">
+						</td>
+					{% endif %}
+					{% for column in columns %}
+						<td>
+							{% if column.type == "date" %}
+								{% if attribute(item,column.attribute)%}
+									{{ attribute(item,column.attribute)|date("H:i d.m.Y") }}
+								{% endif %}
+							{% else %}
+								{{ attribute(item,column.attribute) }}
+
+							{% endif %}
+						</td>
+					{% endfor %}
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endif %}

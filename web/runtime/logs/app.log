@@ -1,0 +1,125 @@
+2023-01-20 21:03:50 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "". in C:\OSPanel\domains\carcrm.com\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 C:\OSPanel\domains\carcrm.com\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('', Array)
+#1 C:\OSPanel\domains\carcrm.com\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\OSPanel\domains\carcrm.com\web\index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in C:\OSPanel\domains\carcrm.com\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\OSPanel\domains\carcrm.com\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\OSPanel\domains\carcrm.com\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2023-01-20 21:03:50 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'site/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '2vqasij1cfgfkhee6lucrmuvps3ibqqm'
+    '_csrf' => 'a13c3a888e14ae65c631add155f3031943ded6277913d8c619cb957ce5d143e0a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ky6EIzFMQrCZbxrQ3Rmf7KR1gWnP6tlZ\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'adb' => ' C:\\Users\\Misha\\platform-tools'
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'APPDATA' => 'C:\\Users\\Misha\\AppData\\Roaming'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'DESKTOP-2UE4911'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'HOME' => 'c:\\ospanel'
+    'HOMEDRIVE' => 'c:'
+    'HOMEPATH' => '\\ospanel'
+    'LOCALAPPDATA' => 'C:\\Users\\Misha\\AppData\\Local'
+    'LOGONSERVER' => '\\\\DESKTOP-2UE4911'
+    'MSMPI_BENCHMARKS' => 'C:\\Program Files\\Microsoft MPI\\Benchmarks\\'
+    'MSMPI_BIN' => 'C:\\Program Files\\Microsoft MPI\\Bin\\'
+    'MSMPI_INC' => 'C:\\Program Files (x86)\\Microsoft SDKs\\MPI\\Include\\'
+    'MSMPI_LIB32' => 'C:\\Program Files (x86)\\Microsoft SDKs\\MPI\\Lib\\x86\\'
+    'MSMPI_LIB64' => 'C:\\Program Files (x86)\\Microsoft SDKs\\MPI\\Lib\\x64\\'
+    'NUMBER_OF_PROCESSORS' => '8'
+    'OneDrive' => 'C:\\Users\\Misha\\OneDrive'
+    'OPENRDA_INI' => 'C:\\Program Files (x86)\\CA\\ERwin Data Modeler r7.3\\OpenAccess\\bin\\iwinnt\\openrda.ini'
+    'OS' => 'Windows_NT'
+    'Path' => 'c:\\ospanel\\modules\\php\\PHP_7.2\\ext;c:\\ospanel\\modules\\php\\PHP_7.2\\pear;c:\\ospanel\\modules\\php\\PHP_7.2\\pear\\bin;c:\\ospanel\\modules\\php\\PHP_7.2;c:\\ospanel\\modules\\wget\\bin;c:\\ospanel\\modules\\database\\MySQL-8.0-Win10\\bin;c:\\ospanel\\modules\\http\\Nginx_1.23\\bin;c:\\ospanel\\modules\\http\\Nginx_1.23;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PHPBIN' => 'c:\\ospanel\\modules\\php\\PHP_7.2\\php.exe'
+    'PHPDIR' => 'c:\\ospanel\\modules\\php\\PHP_7.2\\'
+    'PHPRC' => 'c:\\ospanel\\modules\\php\\PHP_7.2'
+    'PHP_BIN' => 'c:\\ospanel\\modules\\php\\PHP_7.2\\php.exe'
+    'PHP_BINARY' => 'c:\\ospanel\\modules\\php\\PHP_7.2\\php.exe'
+    'PHP_BINDIR' => 'c:\\ospanel\\modules\\php\\PHP_7.2\\'
+    'PHP_DIR' => 'c:\\ospanel\\modules\\php\\PHP_7.2\\'
+    'PHP_FCGI_MAX_REQUESTS' => '0'
+    'PHP_INI' => 'c:\\ospanel\\modules\\php\\PHP_7.2\\php.ini'
+    'PHP_PEAR_BIN_DIR' => 'c:\\ospanel\\modules\\php\\PHP_7.2\\PEAR'
+    'PHP_PEAR_DATA_DIR' => 'c:\\ospanel\\modules\\php\\PHP_7.2\\PEAR\\data'
+    'PHP_PEAR_DOC_DIR' => 'c:\\ospanel\\modules\\php\\PHP_7.2\\PEAR\\docs'
+    'PHP_PEAR_INSTALL_DIR' => 'c:\\ospanel\\modules\\php\\PHP_7.2\\PEAR\\pear'
+    'PHP_PEAR_PHP_BIN' => 'c:\\ospanel\\modules\\php\\PHP_7.2\\php.exe'
+    'PHP_PEAR_SYSCONF_DIR' => 'c:\\ospanel\\modules\\php\\PHP_7.2\\PEAR'
+    'PHP_PEAR_TEST_DIR' => 'c:\\ospanel\\modules\\php\\PHP_7.2\\PEAR\\tests'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 142 Stepping 10, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '8e0a'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'SESSIONNAME' => 'Console'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'c:\\ospanel\\userdata\\temp'
+    'TMP' => 'c:\\ospanel\\userdata\\temp'
+    'USERDOMAIN' => 'DESKTOP-2UE4911'
+    'USERDOMAIN_ROAMINGPROFILE' => 'DESKTOP-2UE4911'
+    'USERNAME' => 'Misha1'
+    'USERPROFILE' => 'C:\\Users\\Misha'
+    'windir' => 'C:\\Windows'
+    'ZES_ENABLE_SYSMAN' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=2vqasij1cfgfkhee6lucrmuvps3ibqqm; _csrf=a13c3a888e14ae65c631add155f3031943ded6277913d8c619cb957ce5d143e0a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ky6EIzFMQrCZbxrQ3Rmf7KR1gWnP6tlZ%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_DNT' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => 'carcrm.com'
+    'SERVER_SOFTWARE' => 'nginx'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_PORT' => '80'
+    'SERVER_NAME' => 'carcrm.com'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SCRIPT_NAME' => '/web/index.php'
+    'SCRIPT_FILENAME' => 'c:/ospanel/domains/carcrm.com/web/index.php'
+    'REQUEST_URI' => '/web/index.php?r=site/index'
+    'REQUEST_SCHEME' => 'http'
+    'REQUEST_METHOD' => 'GET'
+    'REMOTE_PORT' => '56694'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'QUERY_STRING' => 'r=site/index'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'DOCUMENT_URI' => '/web/index.php'
+    'DOCUMENT_ROOT' => 'c:/ospanel/domains/carcrm.com'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1674237830.5346
+    'REQUEST_TIME' => 1674237830
+]
